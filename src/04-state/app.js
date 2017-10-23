@@ -4,12 +4,17 @@ import ReactDOM from 'react-dom';
 const container = document.querySelector('.js-app');
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: 'Hello'};
+  }
+
   render() {
     return (
       <div>
         {/* inputの値とp要素の値が同期させるようにしてみましょう */}
-        <input type="text" value="Hello" onChange={() => {}} />
-        <p>Hello</p>
+        <input type="text" value={this.state.text} onChange={(e) => { this.setState({text: e.target.value}) }} />
+        <p>{this.state.text}</p>
       </div>
     )
   }
