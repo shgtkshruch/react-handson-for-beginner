@@ -9,11 +9,26 @@ const container = document.querySelector('.js-app');
 // https://reactjs.org/docs/refs-and-the-dom.html
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: 'Hello'};
+  }
+
+  componentDidMount() {
+    this.textInput.focus();
+  }
+
   render() {
     return (
       <div>
-        <input type="text" value="Hello" onChange={() => {}} />
-        <p>Hello</p>
+        {/* inputの値とp要素の値が同期させるようにしてみましょう */}
+        <input
+          type="text"
+          value={this.state.text}
+          ref={(input) => { this.textInput = input; }}
+          onChange={(e) => { this.setState({text: e.target.value}) }}
+        />
+        <p>{this.state.text}</p>
       </div>
     )
   }
