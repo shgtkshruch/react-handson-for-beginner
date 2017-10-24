@@ -23,8 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* サーバーからデータを取得したあとは、NewsのComponentを表示して、その中でNewsItemのComponentを表示してみましょう */}
-        <News items={ this.state.items }/>
+        <News items={ this.state.items } />
         <p ref={(text) => { this.loadinText = text }}>Now Loading...</p>
       </div>
     )
